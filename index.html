@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Irina Levitanus | South Florida Realtor</title>
+  <meta name="description" content="Luxury residential real estate, rentals, commercial opportunities, and business acquisitions across South Florida." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0b1a2d;
+      --panel: rgba(255,255,255,0.08);
+      --panel-strong: rgba(255,255,255,0.12);
+      --border: rgba(255,255,255,0.14);
+      --text: #eef4ff;
+      --muted: #b5c3d9;
+      --gold: #d8b26e;
+      --gold-soft: #f0d6a6;
+      --teal: #72d7db;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(114,215,219,0.14), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(216,178,110,0.18), transparent 22%),
+        linear-gradient(180deg, #050c16 0%, #081423 35%, #0b1524 100%);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 16px;
+      z-index: 30;
+      padding-top: 16px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-radius: 999px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-top {
+      font-size: 0.8rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .brand-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 72px 0 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card {
+      border-radius: 34px;
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+        radial-gradient(circle at 15% 15%, rgba(114,215,219,0.18), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(216,178,110,0.18), transparent 22%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.74rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      max-width: 9ch;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 630px;
+      margin: 22px 0 28px;
+    }
+
+    .accent {
+      background: linear-gradient(135deg, var(--gold-soft), var(--teal));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffffff, #dce7f8);
+      color: #08111d;
+      box-shadow: 0 12px 28px rgba(255,255,255,0.16);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #2dd56f, #25d366);
+      color: white;
+      box-shadow: 0 12px 28px rgba(37,211,102,0.22);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+      grid-template-rows: 1.2fr 0.8fr;
+    }
+
+    .portrait-card,
+    .info-card,
+    .section-card,
+    .cta-band {
+      border-radius: 30px;
+    }
+
+    .portrait-card {
+      min-height: 350px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(8,18,32,0.15), rgba(8,18,32,0.75)),
+        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    .portrait-overlay {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(7,17,31,0.62);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .portrait-overlay strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .portrait-overlay span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .info-card {
+      padding: 22px;
+    }
+
+    .info-card h3,
+    .section-title,
+    .cta-band h2 { margin: 0 0 12px; }
+
+    .quick-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .quick-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .quick-item:last-child { border-bottom: 0; }
+
+    section {
+      padding: 18px 0 26px;
+    }
+
+    .section-shell {
+      padding: 34px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.74rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .service-grid,
+    .area-grid,
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service-card,
+    .area-card,
+    .contact-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .service-card h3,
+    .area-card h3,
+    .contact-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .service-card p,
+    .area-card p,
+    .contact-card p,
+    .contact-card a,
+    .about-copy,
+    .list,
+    .hours-list {
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+    }
+
+    .about-copy {
+      font-size: 1.02rem;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .list div {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--teal));
+      margin-top: 9px;
+      flex: 0 0 auto;
+    }
+
+    .area-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .area-card {
+      text-align: center;
+      padding: 20px 14px;
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .hours-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hours-list li:last-child { border-bottom: 0; }
+
+    .cta-band {
+      padding: 32px;
+      margin: 14px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background:
+        linear-gradient(135deg, rgba(216,178,110,0.14), rgba(114,215,219,0.10)),
+        rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .cta-band p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    footer {
+      padding: 0 0 44px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .service-grid,
+      .area-grid,
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-side {
+        grid-template-rows: auto auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav { border-radius: 24px; }
+      .nav-links { display: none; }
+      .hero { padding-top: 34px; }
+      .hero-grid,
+      .about-grid,
+      .service-grid,
+      .area-grid,
+      .contact-grid,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+      .hero-card,
+      .section-shell,
+      .cta-band { padding: 24px; }
+      .hero-card { min-height: auto; }
+      h1 { max-width: 100%; }
+      .cta-band {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <div class="container">
+      <nav class="nav glass">
+        <div class="brand">
+          <span class="brand-top">South Florida Luxury</span>
+          <span class="brand-name">Irina Levitanus</span>
+        </div>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#areas">Areas</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card glass">
+        <div class="eyebrow">Luxury • Residential • Commercial • Business Sales</div>
+        <h1>Elevated <span class="accent">South Florida</span> real estate guidance.</h1>
+        <p class="hero-sub">
+          Professional real estate representation for buyers, sellers, investors, landlords, tenants, and business owners across South Florida. Personalized strategy, responsive service, and polished execution from first conversation to closing.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="tel:+13472592433">Call Now</a>
+          <a class="btn btn-secondary" href="mailto:irinarealest@gmail.com">Email</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/13472592433" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>English</strong>
+            <span>Professional service available</span>
+          </div>
+          <div class="stat">
+            <strong>Russian</strong>
+            <span>Clear bilingual communication</span>
+          </div>
+          <div class="stat">
+            <strong>By Appointment</strong>
+            <span>Tailored private consultations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="portrait-card glass">
+          <div class="portrait-overlay">
+            <strong>Irina Levitanus</strong>
+            <span>South Florida Realtor | Lokation Real Estate</span>
+          </div>
+        </div>
+        <div class="info-card glass">
+          <h3>Direct Contact</h3>
+          <div class="quick-list">
+            <div class="quick-item"><span>Phone</span><strong>(347) 259-2433</strong></div>
+            <div class="quick-item"><span>Website</span><strong>irinalevitanus.com</strong></div>
+            <div class="quick-item"><span>Service Model</span><strong>Appointment only</strong></div>
+            <div class="quick-item"><span>Affiliation</span><strong>Lokation Real Estate</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="services">
+      <div class="container">
+        <div class="section-shell glass">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Services</div>
+              <h2 class="section-title">Full-spectrum representation with a polished, strategic approach.</h2>
+            </div>
+            <p class="section-copy">
+              From primary residences and luxury homes to rentals, investment opportunities, commercial properties, and business transactions, every client receives focused attention and practical guidance.
+            </p>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card">
+              <h3>Residential Sales</h3>
+              <p>Thoughtful guidance for buyers and sellers seeking smooth negotiations, strong positioning, and confident decisions.</p>
+            </article>
+            <article class="service-card">
+              <h3>Luxury Homes</h3>
+              <p>Discreet, high-touch service for premium properties, elevated marketing, and refined client communication.</p>
+            </article>
+            <article class="service-card">
+              <h3>Rentals</h3>
+              <p>Support for landlords and tenants with a focus on fit, timing, documentation, and transaction clarity.</p>
+            </article>
+            <article class="service-card">
+              <h3>Commercial & Business Sales</h3>
+              <p>Guidance for commercial real estate opportunities, business acquisitions, and business sale transactions.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-shell glass">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">About</div>
+              <h2 class="section-title">Professionalism, trust, and detail-driven execution.</h2>
+            </div>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy">
+              Irina Levitanus is a licensed real estate agent affiliated with Lokation Real Estate, serving clients across South Florida with a personalized and results-oriented approach. She works closely with buyers, sellers, investors, landlords, tenants, and business owners to navigate each stage of the process with precision and confidence.
+              <br /><br />
+              Every transaction is different. That is why the process is tailored to each client’s priorities, timeline, and investment goals—while maintaining clear communication, market awareness, and a high standard of service from consultation to closing.
+            </div>
+
+            <div class="service-card">
+              <h3>What clients value</h3>
+              <div class="list">
+                <div><span class="dot"></span><span>Personalized guidance instead of one-size-fits-all advice</span></div>
+                <div><span class="dot"></span><span>Strong communication in English and Russian</span></div>
+                <div><span class="dot"></span><span>Attention to detail throughout negotiations and documents</span></div>
+                <div><span class="dot"></span><span>Professional, responsive, appointment-based service</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="areas">
+      <div class="container">
+        <div class="section-shell glass">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Service Areas</div>
+              <h2 class="section-title">Focused on South Florida’s most desirable markets.</h2>
+            </div>
+            <p class="section-copy">Available by appointment across key Broward and Palm Beach County markets, with service tailored to each location and property type.</p>
+          </div>
+
+          <div class="area-grid">
+            <div class="area-card"><h3>Parkland</h3><p>Residential and luxury homes</p></div>
+            <div class="area-card"><h3>Coral Springs</h3><p>Family homes and rentals</p></div>
+            <div class="area-card"><h3>Boca Raton</h3><p>Luxury and investment properties</p></div>
+            <div class="area-card"><h3>Delray Beach</h3><p>Coastal lifestyle markets</p></div>
+            <div class="area-card"><h3>Boynton Beach</h3><p>Sales and leasing support</p></div>
+            <div class="area-card"><h3>Coconut Creek</h3><p>Residential opportunities</p></div>
+            <div class="area-card"><h3>Deerfield Beach</h3><p>Beach-area properties</p></div>
+            <div class="area-card"><h3>Fort Lauderdale</h3><p>Urban and waterfront options</p></div>
+            <div class="area-card"><h3>Hollywood</h3><p>Sales, rentals, and investment</p></div>
+            <div class="area-card"><h3>Sunny Isles Beach</h3><p>Luxury coastal real estate</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-shell glass">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Contact</div>
+              <h2 class="section-title">Let’s discuss your goals.</h2>
+            </div>
+            <p class="section-copy">Consultations are available by appointment. Reach out by phone, email, or WhatsApp to start the conversation.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>Phone</h3>
+              <p><a href="tel:+13472592433">(347) 259-2433</a></p>
+            </div>
+            <div class="contact-card">
+              <h3>Email</h3>
+              <p><a href="mailto:irinarealest@gmail.com">irinarealest@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+              <h3>Website</h3>
+              <p><a href="https://irinalevitanus.com/" target="_blank" rel="noopener noreferrer">irinalevitanus.com</a></p>
+            </div>
+            <div class="contact-card">
+              <h3>Social</h3>
+              <p>
+                <a href="https://www.instagram.com/irinarealest/" target="_blank" rel="noopener noreferrer">Instagram</a><br />
+                <a href="https://www.facebook.com/irina.levitanus" target="_blank" rel="noopener noreferrer">Facebook</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="about-grid" style="margin-top: 18px;">
+            <div class="service-card">
+              <h3>Business Hours</h3>
+              <ul class="hours-list">
+                <li><span>Monday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                <li><span>Tuesday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                <li><span>Wednesday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                <li><span>Thursday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                <li><span>Friday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                <li><span>Saturday</span><strong>9:00 AM – 3:00 PM</strong></li>
+                <li><span>Sunday</span><strong>Closed</strong></li>
+              </ul>
+            </div>
+            <div class="service-card">
+              <h3>Business Details</h3>
+              <div class="list">
+                <div><span class="dot"></span><span>Women-owned business</span></div>
+                <div><span class="dot"></span><span>Appointment required</span></div>
+                <div><span class="dot"></span><span>Serving South Florida</span></div>
+                <div><span class="dot"></span><span>No public office location</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="cta-band glass">
+        <div>
+          <h2>Ready to move with clarity and confidence?</h2>
+          <p>Whether you are buying, selling, leasing, investing, or exploring a business transaction, reach out for a private consultation tailored to your goals.</p>
+        </div>
+        <div class="button-row">
+          <a class="btn btn-primary" href="tel:+13472592433">Call</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/13472592433" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Irina Levitanus • South Florida Realtor • All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
